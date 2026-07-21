@@ -134,6 +134,7 @@ h1 { margin-bottom: 4px; }
   padding: 0;
   border: none;
   border-radius: 4px;
+  min-width: 0;
   background: rgba(146, 239, 244, 0.15);
   cursor: pointer;
   font-weight: 600;
@@ -147,8 +148,10 @@ h1 { margin-bottom: 4px; }
 }
 
 .select-trigger .sel-label {
-  line-height: 1;
+  line-height: 1.2;
   color: #000;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .select-trigger .sel-icon {
@@ -194,7 +197,10 @@ h1 { margin-bottom: 4px; }
   align-items: center;
   padding: 3px 6px;
   cursor: pointer;
+  min-width: 0;
   color: #000;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .option:hover {
