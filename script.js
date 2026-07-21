@@ -8,6 +8,7 @@ const LANG = {
     rightPad: '右侧边距',
     fontSize: '字体大小',
     toggle: 'English',
+    emblems: ['艾黛尔贾特', '艾克', '艾莉可', '贝雷特', '琳', '露琪娜', '罗伊', '马尔斯', '米卡雅', '赛莉卡', '神威', '辛格尔特'],
   },
   'en': {
     title: 'SDS Emblem Planner',
@@ -18,6 +19,7 @@ const LANG = {
     rightPad: 'Right Pad',
     fontSize: 'Font Size',
     toggle: '中文',
+    emblems: ['Edelgard', 'Ike', 'Eirika', 'Byleth', 'Lyn', 'Lucina', 'Roy', 'Marth', 'Micaiah', 'Celica', 'Corrin', 'Sigurd'],
   },
 };
 
@@ -39,11 +41,6 @@ const fontSizeVal = document.getElementById('fontSizeVal');
 const langToggle = document.getElementById('langToggle');
 const desc = document.getElementById('desc');
 const uploadLabel = document.getElementById('uploadLabel');
-
-const EMBLEMS = [
-  '艾黛尔贾特', '艾克', '艾莉可', '贝雷特', '琳', '露琪娜',
-  '罗伊', '马尔斯', '米卡雅', '赛莉卡', '神威', '辛格尔特'
-];
 
 let imgNatural = null;
 let crop = { x1: 0, y1: 0, x2: 0, y2: 0 };
@@ -156,6 +153,19 @@ function translate() {
     el.textContent = t[el.dataset.key];
   });
   langToggle.textContent = t.toggle;
+  document.querySelectorAll('.option[data-index]').forEach(el => {
+    el.textContent = t.emblems[el.dataset.index];
+  });
+  document.querySelectorAll('.custom-select.selected').forEach(el => {
+    const val = el.dataset.selected;
+    if (val) {
+      const idx = LANG.zh.emblems.indexOf(val);
+      if (idx !== -1) {
+        const label = el.querySelector('.sel-label');
+        if (label) label.textContent = t.emblems[idx];
+      }
+    }
+  });
 }
 
 leftPad.addEventListener('input', applySliderValues);
@@ -256,10 +266,11 @@ function createSlot() {
   const optionsList = document.createElement('div');
   optionsList.className = 'select-options';
 
-  function addOption(value, label) {
+  function addOption(value, label, index) {
     const opt = document.createElement('div');
     opt.className = 'option';
     opt.dataset.value = value;
+    if (index !== undefined) opt.dataset.index = index;
     opt.textContent = label;
     opt.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -269,17 +280,19 @@ function createSlot() {
   }
 
   addOption('', '—');
-  for (const name of EMBLEMS) {
-    addOption(name, name);
-  }
+  LANG.zh.emblems.forEach((name, i) => {
+    addOption(name, name, i);
+  });
 
   function selectValue(val, label) {
     if (val) {
       trigger.innerHTML = `<img class="sel-icon" src="icon.png" alt="" /><span class="sel-label">${label}</span>`;
       customSelect.classList.add('selected');
+      customSelect.dataset.selected = val;
     } else {
   trigger.innerHTML = '<span class="placeholder">—</span>';
       customSelect.classList.remove('selected');
+      delete customSelect.dataset.selected;
     }
     customSelect.classList.remove('open');
     openDropdown = null;
