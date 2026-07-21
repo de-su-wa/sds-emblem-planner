@@ -281,7 +281,7 @@ function createSlot() {
 
   addOption('', '—');
   LANG.zh.emblems.forEach((name, i) => {
-    addOption(name, name, i);
+    addOption(name, LANG[currentLang].emblems[i], i);
   });
 
   function selectValue(val, label) {
