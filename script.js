@@ -153,10 +153,7 @@ function translate() {
   uploadLabel.textContent = t.upload;
   cropBtn.textContent = t.crop;
   document.querySelectorAll('.ctrl-label').forEach(el => {
-    const key = el.textContent.trim().toLowerCase().replace(' ', '');
-    if (key === 'leftpad') el.textContent = t.leftPad;
-    else if (key === 'rightpad') el.textContent = t.rightPad;
-    else if (key === 'fontsize') el.textContent = t.fontSize;
+    el.textContent = t[el.dataset.key];
   });
   langToggle.textContent = t.toggle;
 }
