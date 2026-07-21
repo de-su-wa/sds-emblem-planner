@@ -9,6 +9,8 @@ const leftPad = document.getElementById('leftPad');
 const rightPad = document.getElementById('rightPad');
 const leftPadVal = document.getElementById('leftPadVal');
 const rightPadVal = document.getElementById('rightPadVal');
+const fontSizeSlider = document.getElementById('fontSize');
+const fontSizeVal = document.getElementById('fontSizeVal');
 
 const EMBLEMS = [
   '艾黛尔贾特', '艾克', '艾莉可', '贝雷特', '琳', '露琪娜',
@@ -113,13 +115,18 @@ cropBtn.addEventListener('click', doCropAndSlice);
 
 leftPad.addEventListener('input', applySliderValues);
 rightPad.addEventListener('input', applySliderValues);
+fontSizeSlider.addEventListener('input', applySliderValues);
 
 function applySliderValues() {
   leftPadVal.textContent = leftPad.value;
   rightPadVal.textContent = rightPad.value;
+  fontSizeVal.textContent = fontSizeSlider.value;
   document.querySelectorAll('.slots-grid').forEach(g => {
     g.style.paddingLeft = leftPad.value + '%';
     g.style.paddingRight = rightPad.value + '%';
+  });
+  document.querySelectorAll('.custom-select').forEach(s => {
+    s.style.fontSize = fontSizeSlider.value + 'px';
   });
 }
 
