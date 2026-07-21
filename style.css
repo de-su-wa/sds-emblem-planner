@@ -130,14 +130,14 @@ h1 { margin-bottom: 4px; }
 .select-trigger {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 2px 3px;
+  gap: 2px;
+  padding: 0;
   border: 1px solid #7fd8dd;
   border-radius: 4px;
   background: rgba(146, 239, 244, 0.15);
   cursor: pointer;
   font-weight: 600;
-  min-height: 36px;
+  min-height: 30px;
   line-height: 1;
 }
 
