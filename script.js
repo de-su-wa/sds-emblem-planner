@@ -163,7 +163,6 @@ function sliceImage(sourceCanvas) {
   slicesContainer.innerHTML = '';
   slicesContainer.classList.remove('hidden');
   sliceControls.classList.remove('hidden');
-  applySliderValues();
 
   for (let i = 0; i < 4; i++) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -186,6 +185,7 @@ function sliceImage(sourceCanvas) {
     group.appendChild(slots);
     slicesContainer.appendChild(group);
   }
+  applySliderValues();
 }
 
 let openDropdown = null;
