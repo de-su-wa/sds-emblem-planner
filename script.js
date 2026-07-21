@@ -42,6 +42,21 @@ const langToggle = document.getElementById('langToggle');
 const desc = document.getElementById('desc');
 const uploadLabel = document.getElementById('uploadLabel');
 
+const ICON_MAP = {
+  '艾黛尔贾特': 'edelgard.png',
+  '艾克': 'ike.png',
+  '艾莉可': 'eirikia.png',
+  '贝雷特': 'byleth.png',
+  '琳': 'lyn.png',
+  '露琪娜': 'lucina.png',
+  '罗伊': 'roy.png',
+  '马尔斯': 'marth.png',
+  '米卡雅': 'micaiah.png',
+  '赛莉卡': 'celica.png',
+  '神威': 'corrin.png',
+  '辛格尔特': 'sigurd.png',
+};
+
 let imgNatural = null;
 let crop = { x1: 0, y1: 0, x2: 0, y2: 0 };
 let drawing = false;
@@ -294,7 +309,7 @@ function createSlot() {
           delete el.dataset.selected;
         }
       });
-      trigger.innerHTML = `<img class="sel-icon" src="icon.png" alt="" /><span class="sel-label">${label}</span>`;
+      trigger.innerHTML = `<img class="sel-icon" src="icons/${ICON_MAP[val]}" alt="" /><span class="sel-label">${label}</span>`;
       customSelect.classList.add('selected');
       customSelect.dataset.selected = val;
     } else {
