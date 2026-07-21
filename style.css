@@ -116,14 +116,14 @@ h1 { margin-bottom: 8px; }
 .select-trigger {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px 6px;
+  gap: 2px;
+  padding: 2px 3px;
   border: 1px solid #7fd8dd;
   border-radius: 4px;
   background: rgba(146, 239, 244, 0.15);
   cursor: pointer;
   font-weight: 600;
-  min-height: 30px;
+  min-height: 24px;
   line-height: 1;
 }
 
@@ -176,7 +176,7 @@ h1 { margin-bottom: 8px; }
 .option {
   display: flex;
   align-items: center;
-  padding: 5px 8px;
+  padding: 3px 6px;
   cursor: pointer;
   color: #000;
 }
