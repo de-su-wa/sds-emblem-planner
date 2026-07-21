@@ -206,7 +206,7 @@ function createSlot() {
 
   const trigger = document.createElement('div');
   trigger.className = 'select-trigger';
-  trigger.innerHTML = '<span class="placeholder">—</span><span class="arrow">▾</span>';
+  trigger.innerHTML = '<span class="placeholder">—</span>';
 
   const optionsList = document.createElement('div');
   optionsList.className = 'select-options';
