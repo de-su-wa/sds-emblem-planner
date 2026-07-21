@@ -309,7 +309,9 @@ function createSlot() {
           delete el.dataset.selected;
         }
       });
-      trigger.innerHTML = `<img class="sel-icon" src="icons/${ICON_MAP[val]}" alt="" /><span class="sel-label">${label}</span>`;
+      const idx = LANG.zh.emblems.indexOf(val);
+      const curLabel = idx !== -1 ? LANG[currentLang].emblems[idx] : label;
+      trigger.innerHTML = `<img class="sel-icon" src="icons/${ICON_MAP[val]}" alt="" /><span class="sel-label">${curLabel}</span>`;
       customSelect.classList.add('selected');
       customSelect.dataset.selected = val;
     } else {
