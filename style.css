@@ -16,7 +16,21 @@ body {
   box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
 
-h1 { margin-bottom: 8px; }
+h1 { margin-bottom: 4px; }
+
+.header { display: flex; justify-content: space-between; align-items: center; }
+
+#langToggle {
+  padding: 4px 12px;
+  border: 1px solid #7fd8dd;
+  border-radius: 4px;
+  background: #92EFF4;
+  cursor: pointer;
+  font-size: 12px;
+  color: #000;
+}
+
+#langToggle:hover { background: #7fd8dd; }
 
 .hidden { display: none !important; }
 

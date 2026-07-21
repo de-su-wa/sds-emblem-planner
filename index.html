@@ -8,12 +8,15 @@
 </head>
 <body>
   <div class="container">
-    <h1>SDS Emblem Planner</h1>
-    <p>Upload an image, select a crop region, and slice into 4 rows.</p>
+    <div class="header">
+      <h1>SDS Emblem Planner</h1>
+      <button id="langToggle">中文</button>
+    </div>
+    <p id="desc">Upload an image, select a crop region, and slice into 4 rows.</p>
 
     <div class="upload-area">
       <input type="file" id="imageInput" accept="image/*" />
-      <label for="imageInput">Choose an image</label>
+      <label id="uploadLabel" for="imageInput">Choose an image</label>
     </div>
 
     <div id="cropSection" class="hidden">
@@ -25,9 +28,9 @@
     </div>
 
     <div id="sliceControls" class="hidden">
-      <label>Left Pad: <span id="leftPadVal">15</span>% <input type="range" id="leftPad" min="0" max="40" value="15" /></label>
-      <label>Right Pad: <span id="rightPadVal">0</span>% <input type="range" id="rightPad" min="0" max="40" value="0" /></label>
-      <label>Font Size: <span id="fontSizeVal">10</span>px <input type="range" id="fontSize" min="6" max="20" value="10" /></label>
+      <label><span class="ctrl-label">Left Pad</span>: <span id="leftPadVal">15</span>% <input type="range" id="leftPad" min="0" max="40" value="15" /></label>
+      <label><span class="ctrl-label">Right Pad</span>: <span id="rightPadVal">0</span>% <input type="range" id="rightPad" min="0" max="40" value="0" /></label>
+      <label><span class="ctrl-label">Font Size</span>: <span id="fontSizeVal">10</span>px <input type="range" id="fontSize" min="6" max="20" value="10" /></label>
     </div>
     <div id="slices" class="hidden"></div>
   </div>

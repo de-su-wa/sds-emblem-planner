@@ -1,3 +1,28 @@
+const LANG = {
+  'zh': {
+    title: 'SDS Emblem Planner',
+    desc: '上传图片，选择裁剪区域，分割为4行。',
+    upload: '选择图片',
+    crop: '裁剪并分割',
+    leftPad: '左侧边距',
+    rightPad: '右侧边距',
+    fontSize: '字体大小',
+    toggle: 'English',
+  },
+  'en': {
+    title: 'SDS Emblem Planner',
+    desc: 'Upload an image, select a crop region, and slice into 4 rows.',
+    upload: 'Choose an image',
+    crop: 'Crop & Slice',
+    leftPad: 'Left Pad',
+    rightPad: 'Right Pad',
+    fontSize: 'Font Size',
+    toggle: '中文',
+  },
+};
+
+let currentLang = 'en';
+
 const imageInput = document.getElementById('imageInput');
 const cropSection = document.getElementById('cropSection');
 const cropImage = document.getElementById('cropImage');
@@ -11,6 +36,9 @@ const leftPadVal = document.getElementById('leftPadVal');
 const rightPadVal = document.getElementById('rightPadVal');
 const fontSizeSlider = document.getElementById('fontSize');
 const fontSizeVal = document.getElementById('fontSizeVal');
+const langToggle = document.getElementById('langToggle');
+const desc = document.getElementById('desc');
+const uploadLabel = document.getElementById('uploadLabel');
 
 const EMBLEMS = [
   '艾黛尔贾特', '艾克', '艾莉可', '贝雷特', '琳', '露琪娜',
@@ -112,6 +140,26 @@ cropCanvas.addEventListener('touchend', (e) => {
 }, { passive: false });
 
 cropBtn.addEventListener('click', doCropAndSlice);
+
+langToggle.addEventListener('click', () => {
+  currentLang = currentLang === 'en' ? 'zh' : 'en';
+  translate();
+});
+
+function translate() {
+  const t = LANG[currentLang];
+  document.querySelector('h1').textContent = t.title;
+  desc.textContent = t.desc;
+  uploadLabel.textContent = t.upload;
+  cropBtn.textContent = t.crop;
+  document.querySelectorAll('.ctrl-label').forEach(el => {
+    const key = el.textContent.trim().toLowerCase().replace(' ', '');
+    if (key === 'leftpad') el.textContent = t.leftPad;
+    else if (key === 'rightpad') el.textContent = t.rightPad;
+    else if (key === 'fontsize') el.textContent = t.fontSize;
+  });
+  langToggle.textContent = t.toggle;
+}
 
 leftPad.addEventListener('input', applySliderValues);
 rightPad.addEventListener('input', applySliderValues);
