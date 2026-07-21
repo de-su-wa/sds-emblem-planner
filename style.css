@@ -156,8 +156,9 @@ h1 { margin-bottom: 4px; }
   width: auto;
   flex-shrink: 0;
   position: relative;
-  top: 4px;
+  top: 0;
   box-shadow: none;
+  margin-bottom: 0;
   display: block;
 }
 
