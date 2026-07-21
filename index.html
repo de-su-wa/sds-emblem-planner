@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SDS Emblem Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>SDS Emblem Planner</h1>
+    <p>Upload an image, select a crop region, and slice into 4 rows.</p>
+
+    <div class="upload-area">
+      <input type="file" id="imageInput" accept="image/*" />
+      <label for="imageInput">Choose an image</label>
+    </div>
+
+    <div id="cropSection" class="hidden">
+      <div class="crop-wrap">
+        <img id="cropImage" />
+        <canvas id="cropCanvas"></canvas>
+      </div>
+      <button id="cropBtn">Crop &amp; Slice</button>
+    </div>
+
+    <div id="sliceControls" class="hidden">
+      <label>Left Pad: <span id="leftPadVal">0</span>% <input type="range" id="leftPad" min="0" max="40" value="0" /></label>
+      <label>Right Pad: <span id="rightPadVal">0</span>% <input type="range" id="rightPad" min="0" max="40" value="0" /></label>
+    </div>
+    <div id="slices" class="hidden"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
