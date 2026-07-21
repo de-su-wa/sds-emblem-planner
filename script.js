@@ -230,10 +230,10 @@ function createSlot() {
 
   function selectValue(val, label) {
     if (val) {
-      trigger.innerHTML = `<img class="sel-icon" src="icon.png" alt="" /><span class="sel-label">${label}</span><span class="arrow">▾</span>`;
+      trigger.innerHTML = `<img class="sel-icon" src="icon.png" alt="" /><span class="sel-label">${label}</span>`;
       customSelect.classList.add('selected');
     } else {
-      trigger.innerHTML = '<span class="placeholder">—</span><span class="arrow">▾</span>';
+  trigger.innerHTML = '<span class="placeholder">—</span>';
       customSelect.classList.remove('selected');
     }
     customSelect.classList.remove('open');

@@ -137,13 +137,6 @@ h1 { margin-bottom: 8px; }
   color: #000;
 }
 
-.select-trigger .arrow {
-  margin-left: auto;
-  font-size: 10px;
-  color: #666;
-  line-height: 1;
-}
-
 .select-trigger .sel-icon {
   height: 1.1em;
   width: auto;
