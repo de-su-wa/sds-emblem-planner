@@ -286,6 +286,14 @@ function createSlot() {
 
   function selectValue(val, label) {
     if (val) {
+      document.querySelectorAll('.custom-select.selected').forEach(el => {
+        if (el.dataset.selected === val && el !== customSelect) {
+          const t = el.querySelector('.select-trigger');
+          if (t) t.innerHTML = '<span class="placeholder">—</span>';
+          el.classList.remove('selected');
+          delete el.dataset.selected;
+        }
+      });
       trigger.innerHTML = `<img class="sel-icon" src="icon.png" alt="" /><span class="sel-label">${label}</span>`;
       customSelect.classList.add('selected');
       customSelect.dataset.selected = val;
