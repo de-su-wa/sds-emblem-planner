@@ -132,7 +132,7 @@ h1 { margin-bottom: 4px; }
   align-items: center;
   gap: 2px;
   padding: 0;
-  border: 1px solid #7fd8dd;
+  border: none;
   border-radius: 4px;
   background: rgba(146, 239, 244, 0.15);
   cursor: pointer;
